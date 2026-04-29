@@ -41,9 +41,9 @@ public class LoginTest {
         WebElement user = driver.findElement(By.id("nameofuser"));
 
         if(user.isDisplayed()) {
-            System.out.println("Login Successful");
+            System.out.println("Login is Successful");
         } else {
-            System.out.println("Login Failed");
+            System.out.println("Login is Failed");
         }
     }
 
