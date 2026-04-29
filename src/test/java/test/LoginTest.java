@@ -27,10 +27,10 @@ public class LoginTest {
         Thread.sleep(2000);
 
         // Enter Username
-        driver.findElement(By.id("loginusername")).sendKeys("testuser");
+        driver.findElement(By.id("loginusername")).sendKeys("Geetha_Kumari");
 
         // Enter Password
-        driver.findElement(By.id("loginpassword")).sendKeys("test123");
+        driver.findElement(By.id("loginpassword")).sendKeys("geetha12345");
 
         // Click Login
         driver.findElement(By.xpath("//button[text()='Log in']")).click();
