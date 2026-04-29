@@ -38,7 +38,6 @@ public class LoginTest {
     @Test(dataProvider = "loginData")
     public void loginTest(String username, String password) {
 
-        // Ensure modal is not already open
         try {
             WebElement closeBtn = driver.findElement(By.xpath("//div[@id='logInModal']//button[@class='close']"));
             if (closeBtn.isDisplayed()) {
@@ -46,37 +45,31 @@ public class LoginTest {
                 wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("logInModal")));
             }
         } catch (Exception e) {
-            // modal not open → ignore
+           
         }
 
-        // Click Login button
         wait.until(ExpectedConditions.elementToBeClickable(By.id("login2"))).click();
 
-        // Wait for popup
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("logInModal")));
 
-        // Enter Username
         driver.findElement(By.id("loginusername")).clear();
         driver.findElement(By.id("loginusername")).sendKeys(username);
 
-        // Enter Password
         driver.findElement(By.id("loginpassword")).clear();
         driver.findElement(By.id("loginpassword")).sendKeys(password);
 
-        // Click Login
         driver.findElement(By.xpath("//button[text()='Log in']")).click();
 
-        // Wait for result
         try {
             WebElement user = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("nameofuser")));
-            System.out.println("Login Successful for: " + username);
+            System.out.println("Login is Successful for: " + username);
 
             // Logout for next iteration
             driver.findElement(By.id("logout2")).click();
             wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("nameofuser")));
 
         } catch (Exception e) {
-            System.out.println("Login Failed for: " + username);
+            System.out.println("Login is Failed for: " + username);
         }
     }
 
